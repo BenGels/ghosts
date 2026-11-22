@@ -1,0 +1,5 @@
+; Kopieren nach database.ini und Zugangsdaten eintragen
+user = "ghosts"
+password = "changeme"
+db = "ghosts"
+server = "localhost"

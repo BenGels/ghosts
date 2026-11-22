@@ -1,0 +1,29 @@
+Skills: 
+SELECT s.name, a.name FROM type_skill fs JOIN skill s ON fs.skill = s.id JOIN attribute a ON s.attribute = a.id WHERE fs.type = 3;
+
+Attributmods:
+SELECT a.name, ta.mod FROM type_attribute ta JOIN attribute a ON ta.attribute = a.id WHERE ta.type = 3;
+
+Kräfte
+SELECT f.name, f.description FROM type_force tf JOIN `force` f ON tf.force = f.id WHERE tf.type = 3 AND tf.optional = 0;
+
+Optionale Kräfte
+SELECT f.name, f.description FROM type_force tf JOIN `force` f ON tf.force = f.id WHERE tf.type = 3 AND tf.optional = 1;
+
+
+
+Geistertyp:
+SELECT * FROM type WHERE id = 3;
+
+Geister von Owner
+SELECT t.name, power, services, bound, movement_slow,movement_fast,weaknesses FROM ghost g JOIN type t on g.type = t.id WHERE owner = 0;
+
+Optionale Kräfte von Geist
+SELECT name, description FROM ghost_forces gf JOIN ghost g on gf.ghost = g.id JOIN `force` f ON f.id = gf.`force` WHERE gf.ghost = 2;
+
+Kräfte von Geist
+SELECT f.name, f.description FROM ghost g LEFT JOIN type t ON g.type = t.id JOIN type_force tf ON tf.type = t.id JOIN `force` f ON f.id = tf.`force` WHERE tf.optional = 0 AND g.id = 2;
+
+
+ZustandK 8 + (Kon/2)u
+ZustandG 8 + (Wil/2)u
